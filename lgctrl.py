@@ -15,10 +15,6 @@ class QueryCheck(BaseModel):
     missing_details: str = Field(description="If incomplete, a concise, friendly question asking for the missing details (e.g., database type, specific libraries, auth method). If complete, leave empty.")
 
 
-
-from typing import List
-from pydantic import BaseModel, Field, model_validator
-
 class AiGenContext(BaseModel):
     dependencies: List[str] = Field(description="Upstream module IDs (e.g. 'm1') OR external packages (e.g. 'mysql2').")
     language: str = Field(description="The single language/runtime for the entire blueprint, taken directly from the user's query. If the user didn't specify one, default to 'Python' and note this default was used.")
